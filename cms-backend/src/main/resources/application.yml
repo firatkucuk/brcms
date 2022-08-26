@@ -1,0 +1,13 @@
+server:
+  port: 8080
+
+spring:
+  freemarker:
+    template-loader-path: classpath:/templates
+    suffix: .ftl
+
+content-repository:
+  host: 'http://localhost:9090'
+
+cms:
+  load-test-data: true

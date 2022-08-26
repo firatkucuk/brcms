@@ -1,0 +1,213 @@
+[
+  {
+    "form": {
+      "name": "products",
+      "properties": [
+        {
+          "type": "TEXT",
+          "key": "nodeType",
+          "value": "section"
+        },
+        {
+          "type": "TEXT",
+          "key": "title",
+          "value": "Products"
+        },
+        {
+          "type": "TEXT",
+          "key": "content",
+          "value": "Products main page"
+        }
+      ]
+    },
+    "requests": [
+      {
+        "form": {
+          "name": "women",
+          "properties": [
+            {
+              "type": "TEXT",
+              "key": "nodeType",
+              "value": "section"
+            },
+            {
+              "type": "TEXT",
+              "key": "title",
+              "value": "Women Products"
+            },
+            {
+              "type": "TEXT",
+              "key": "content",
+              "value": "Women category sub page"
+            }
+          ]
+        },
+        "requests": [
+          {
+            "form": {
+              "name": "clothing",
+              "properties": [
+                {
+                  "type": "TEXT",
+                  "key": "nodeType",
+                  "value": "section"
+                },
+                {
+                  "type": "TEXT",
+                  "key": "title",
+                  "value": "Women Clothing"
+                },
+                {
+                  "type": "TEXT",
+                  "key": "content",
+                  "value": "Women clothing category sub page"
+                }
+              ]
+            },
+            "requests": [
+              {
+                "form": {
+                  "name": "solid-flap-pocket-trousers",
+                  "properties": [
+                    {
+                      "type": "TEXT",
+                      "key": "nodeType",
+                      "value": "product"
+                    },
+                    {
+                      "type": "TEXT",
+                      "key": "title",
+                      "value": "Solid Flap Pocket Trousers"
+                    },
+                    {
+                      "type": "ARRAY",
+                      "key": "colors",
+                      "value": [
+                        "Black",
+                        "Grey",
+                        "Khaki",
+                        "Army Green"
+                      ]
+                    },
+                    {
+                      "type": "NUMBER",
+                      "key": "price",
+                      "value": 14.99
+                    },
+                    {
+                      "type": "TEXT",
+                      "key": "material",
+                      "value": "Polyester"
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          {
+            "form": {
+              "name": "dresses",
+              "properties": [
+                {
+                  "type": "TEXT",
+                  "key": "nodeType",
+                  "value": "section"
+                },
+                {
+                  "type": "TEXT",
+                  "key": "title",
+                  "value": "Women Dresses"
+                },
+                {
+                  "type": "TEXT",
+                  "key": "content",
+                  "value": "Women dresses category sub page"
+                }
+              ]
+            },
+            "requests": [
+              {
+                "form": {
+                  "name": "geo-print-belted-a-line-dress",
+                  "properties": [
+                    {
+                      "type": "TEXT",
+                      "key": "nodeType",
+                      "value": "product"
+                    },
+                    {
+                      "type": "TEXT",
+                      "key": "title",
+                      "value": "Geo Print Belted A-line Dress"
+                    },
+                    {
+                      "type": "NUMBER",
+                      "key": "price",
+                      "value": 15.49
+                    },
+                    {
+                      "type": "TEXT",
+                      "key": "material",
+                      "value": "Polyester"
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          {
+            "form": {
+              "name": "shoes",
+              "properties": [
+                {
+                  "type": "TEXT",
+                  "key": "nodeType",
+                  "value": "section"
+                },
+                {
+                  "type": "TEXT",
+                  "key": "title",
+                  "value": "Women Shoes"
+                },
+                {
+                  "type": "TEXT",
+                  "key": "content",
+                  "value": "Women shoes category sub page"
+                }
+              ]
+            },
+            "requests": [
+              {
+                "form": {
+                  "name": "criss-cross-flatform-ankle-strap-sandals",
+                  "properties": [
+                    {
+                      "type": "TEXT",
+                      "key": "nodeType",
+                      "value": "product"
+                    },
+                    {
+                      "type": "TEXT",
+                      "key": "title",
+                      "value": "Criss Cross Flatform Ankle Strap Sandals"
+                    },
+                    {
+                      "type": "NUMBER",
+                      "key": "price",
+                      "value": 18.50
+                    },
+                    {
+                      "type": "TEXT",
+                      "key": "material",
+                      "value": "Rubber"
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+]

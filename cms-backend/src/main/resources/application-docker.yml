@@ -1,0 +1,8 @@
+server:
+  port: 8080
+
+content-repository:
+  host: ${CONTENT_REPOSITORY_HOST:http://brcms-content-repository:8080}
+
+cms:
+  load-test-data: ${CMS_LOAD_TEST_DATA:true}
