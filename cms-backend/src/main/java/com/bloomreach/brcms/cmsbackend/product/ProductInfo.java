@@ -4,6 +4,11 @@ import java.util.List;
 
 public class ProductInfo {
 
+  static final String PRODUCT_PROPERTY_TITLE = "title";
+  static final String PRODUCT_PROPERTY_MATERIAL = "material";
+  static final String PRODUCT_PROPERTY_COLORS = "colors";
+  static final String PRODUCT_PROPERTY_PRICE = "price";
+
   private String name;
   private String title;
   private String material;

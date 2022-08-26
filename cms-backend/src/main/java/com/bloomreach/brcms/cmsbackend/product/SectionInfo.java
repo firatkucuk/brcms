@@ -4,6 +4,9 @@ import java.util.List;
 
 public class SectionInfo {
 
+  static final String SECTION_PROPERTY_TITLE = "title";
+  static final String SECTION_PROPERTY_CONTENT = "content";
+
   private String name;
   private String title;
   private String content;

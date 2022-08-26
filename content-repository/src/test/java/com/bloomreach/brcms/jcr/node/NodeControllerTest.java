@@ -213,6 +213,9 @@ class NodeControllerTest {
   @Test
   void createParentNode_validFormPropertyTypeArray_success() throws Exception {
 
+    Mockito.when(this.nodeService.createNode(Mockito.any(), Mockito.any()))
+        .thenReturn(UlidCreator.getUlid());
+
     this.mockMvc
         .perform(
             post("/nodes")
@@ -235,6 +238,9 @@ class NodeControllerTest {
 
   @Test
   void createParentNode_validFormPropertyTypeBoolean_success() throws Exception {
+
+    Mockito.when(this.nodeService.createNode(Mockito.any(), Mockito.any()))
+        .thenReturn(UlidCreator.getUlid());
 
     this.mockMvc
         .perform(
@@ -259,6 +265,9 @@ class NodeControllerTest {
   @Test
   void createParentNode_validFormPropertyTypeNumber_success() throws Exception {
 
+    Mockito.when(this.nodeService.createNode(Mockito.any(), Mockito.any()))
+        .thenReturn(UlidCreator.getUlid());
+
     this.mockMvc
         .perform(
             post("/nodes")
@@ -281,6 +290,9 @@ class NodeControllerTest {
 
   @Test
   void createParentNode_validFormPropertyTypeTimestamp_success() throws Exception {
+
+    Mockito.when(this.nodeService.createNode(Mockito.any(), Mockito.any()))
+        .thenReturn(UlidCreator.getUlid());
 
     this.mockMvc
         .perform(

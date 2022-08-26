@@ -1,4 +1,8 @@
 spring:
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
+
   datasource:
     url: jdbc:tc:postgresql:14-alpine:///brcms
     driver-class-name: org.testcontainers.jdbc.ContainerDatabaseDriver

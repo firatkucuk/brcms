@@ -7,6 +7,7 @@ import org.hibernate.HibernateException;
 import org.hibernate.engine.spi.SharedSessionContractImplementor;
 import org.hibernate.type.EnumType;
 
+/** This class helps to persist, serialize, deserialize enum values into DB. */
 public class PropertyTypeSqlEnumType extends EnumType {
 
   @Override

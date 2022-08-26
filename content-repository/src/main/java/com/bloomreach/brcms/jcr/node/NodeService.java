@@ -46,7 +46,15 @@ class NodeService {
     this.objectMapper = objectMapper;
   }
 
-  public @NonNull String createNode(final @NonNull NodeForm form, final @Nullable Ulid parentUlid) {
+  /**
+   * Creates a node, if parent parameter is null then it will be parent node otherwise it will be a
+   * child node
+   *
+   * @param form Creation form
+   * @param parentUlid parentId in ULID format
+   * @return id of the created node
+   */
+  public @NonNull Ulid createNode(final @NonNull NodeForm form, final @Nullable Ulid parentUlid) {
 
     final String formNodeName = form.getName();
     final String parentId = parentUlid == null ? null : parentUlid.toString();
@@ -61,7 +69,8 @@ class NodeService {
       throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Node name already exists");
     }
 
-    final String nodeId = UlidCreator.getUlid().toString();
+    final Ulid nodeUlid = UlidCreator.getUlid();
+    final String nodeId = nodeUlid.toString();
 
     final Node node = new Node();
     node.setId(nodeId);
@@ -74,9 +83,14 @@ class NodeService {
 
     LOG.info("node {} created.", formNodeName);
 
-    return nodeId;
+    return nodeUlid;
   }
 
+  /**
+   * Deletes a node with specified nodeId in Ulid format
+   *
+   * @param nodeId node id in Ulid format
+   */
   public void deleteNode(final @NonNull Ulid nodeId) {
 
     final Node node = this.findNode(nodeId);
@@ -85,6 +99,11 @@ class NodeService {
     LOG.info("node {} deleted.", nodeId);
   }
 
+  /**
+   * Fetches a node with specified nodeId in Ulid format
+   *
+   * @param nodeId node id in Ulid format
+   */
   public @NonNull NodeInfo getNode(final @NonNull Ulid nodeId) {
 
     final Node node = this.findNode(nodeId);
@@ -94,6 +113,11 @@ class NodeService {
     return this.convertToNodeInfo(node, new NodeInfo());
   }
 
+  /**
+   * Lists all nodes in a sorted and paged manner
+   *
+   * @param pageable sorting and paging parameters wrapper
+   */
   public @NonNull Page<NodeListItem> listNodes(final @NonNull Pageable pageable) {
 
     final Page<NodeListItem> nodes =
@@ -106,6 +130,12 @@ class NodeService {
     return nodes;
   }
 
+  /**
+   * Fetches extended information over specified path
+   *
+   * @param path path for requested info
+   * @return detailed info over specified path
+   */
   public @NonNull TraversedNodeInfo traverseNode(final @NonNull String path) {
 
     String normalizedPath = path;
@@ -152,6 +182,12 @@ class NodeService {
     return nodeInfo;
   }
 
+  /**
+   * Updates a node
+   *
+   * @param form incoming form values, those values will overridde the actual values
+   * @param nodeId Requested node id for update operation
+   */
   public void updateNode(final @NonNull NodeForm form, final @NonNull Ulid nodeId) {
 
     final Node node = this.findNode(nodeId);

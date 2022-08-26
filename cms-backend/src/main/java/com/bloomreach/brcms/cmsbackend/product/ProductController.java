@@ -27,6 +27,13 @@ public class ProductController {
     this.contentRepository = contentRepository;
   }
 
+  /**
+   * It's an MVC controller which returns specified freemarker template
+   *
+   * @param request request for fetching full path
+   * @param model model data for communication between controller and view
+   * @return template name either section or product
+   */
   @GetMapping("/products/**")
   public String getProductPage(
       final @NonNull HttpServletRequest request, final @NonNull Model model) {
@@ -60,10 +67,10 @@ public class ProductController {
 
     final ProductInfo productInfo = new ProductInfo();
     productInfo.setName(nodeInfo.getName());
-    productInfo.setTitle((String) properties.get("title"));
-    productInfo.setMaterial((String) properties.get("material"));
-    productInfo.setColors((List<String>) properties.get("colors"));
-    productInfo.setPrice((Double) properties.get("price"));
+    productInfo.setTitle((String) properties.get(ProductInfo.PRODUCT_PROPERTY_TITLE));
+    productInfo.setMaterial((String) properties.get(ProductInfo.PRODUCT_PROPERTY_MATERIAL));
+    productInfo.setColors((List<String>) properties.get(ProductInfo.PRODUCT_PROPERTY_COLORS));
+    productInfo.setPrice((Double) properties.get(ProductInfo.PRODUCT_PROPERTY_PRICE));
 
     return productInfo;
   }
@@ -74,13 +81,17 @@ public class ProductController {
 
     final SectionInfo sectionInfo = new SectionInfo();
     sectionInfo.setName(nodeInfo.getName());
-    sectionInfo.setTitle((String) properties.get("title"));
-    sectionInfo.setContent((String) properties.get("content"));
+    sectionInfo.setTitle((String) properties.get(SectionInfo.SECTION_PROPERTY_TITLE));
+    sectionInfo.setContent((String) properties.get(SectionInfo.SECTION_PROPERTY_CONTENT));
     sectionInfo.setParentName(nodeInfo.getParentName());
 
     final List<PageLink> links =
         nodeInfo.getChildren().stream()
-            .map(c -> new PageLink((String) c.getProperties().get("title"), c.getName()))
+            .map(
+                c ->
+                    new PageLink(
+                        (String) c.getProperties().get(SectionInfo.SECTION_PROPERTY_TITLE),
+                        c.getName()))
             .toList();
 
     sectionInfo.setSubPages(links);

@@ -1,8 +1,6 @@
-- common response
-- javadoc
-- optimize dependencies
-- extra REST methods
 - extra unit tests
+- common response
+- extra REST methods
 
 ```
 PUT    /nodes/{id}/{parent-node-id}  : Moves a child node under a parent node
