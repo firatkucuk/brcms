@@ -5,8 +5,7 @@ public class PageLink {
   private String title;
   private String url;
 
-  public PageLink() {
-  }
+  public PageLink() {}
 
   public PageLink(final String title, final String url) {
     this.title = title;

@@ -4,6 +4,7 @@ import com.bloomreach.brcms.client.NodeForm;
 import com.bloomreach.brcms.client.NodeInfo;
 import com.bloomreach.brcms.client.NodeListItem;
 import com.bloomreach.brcms.client.TraversedNodeInfo;
+import io.swagger.annotations.ApiOperation;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 import org.slf4j.Logger;
@@ -38,6 +39,7 @@ public class NodeController {
     this.nodeService = nodeService;
   }
 
+  @ApiOperation(value = "Creates a child node")
   @PostMapping(
       value = {"/nodes/{parentNodeId}", "/nodes/{parentNodeId}/"},
       consumes = MediaType.APPLICATION_JSON_VALUE)
@@ -54,6 +56,7 @@ public class NodeController {
         ValidationUtils.validateUlid(parentNodeId));
   }
 
+  @ApiOperation(value = "Creates a parent node")
   @PostMapping(
       value = {"/nodes", "/nodes/"},
       consumes = MediaType.APPLICATION_JSON_VALUE)
@@ -66,6 +69,7 @@ public class NodeController {
     return this.nodeService.createNode(ValidationUtils.validateAndMapPropertyValues(form), null);
   }
 
+  @ApiOperation(value = "Deletes a node")
   @DeleteMapping(
       value = {"/nodes/{nodeId}", "/nodes/{nodeId}/"},
       consumes = MediaType.APPLICATION_JSON_VALUE)
@@ -77,6 +81,7 @@ public class NodeController {
     this.nodeService.deleteNode(ValidationUtils.validateUlid(nodeId));
   }
 
+  @ApiOperation(value = "Fetches a node")
   @GetMapping(
       value = {"/nodes/{nodeId}", "/nodes/{nodeId}/"},
       consumes = MediaType.APPLICATION_JSON_VALUE)
@@ -88,6 +93,7 @@ public class NodeController {
     return this.nodeService.getNode(ValidationUtils.validateUlid(nodeId));
   }
 
+  @ApiOperation(value = "List nodes")
   @GetMapping(
       value = {"/nodes", "/nodes/"},
       consumes = MediaType.APPLICATION_JSON_VALUE)
@@ -101,6 +107,7 @@ public class NodeController {
     return this.nodeService.listNodes(pageable);
   }
 
+  @ApiOperation(value = "Traverses a node")
   @GetMapping(
       value = {"/nodes", "/nodes/"},
       consumes = MediaType.APPLICATION_JSON_VALUE,
@@ -115,6 +122,7 @@ public class NodeController {
     return this.nodeService.traverseNode(path);
   }
 
+  @ApiOperation(value = "Updates a node")
   @PutMapping(
       value = {"/nodes/{nodeId}", "/nodes/{nodeId}/"},
       consumes = MediaType.APPLICATION_JSON_VALUE)

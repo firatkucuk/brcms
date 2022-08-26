@@ -29,16 +29,14 @@ public class ProductController {
 
   @GetMapping("/products/**")
   public String getProductPage(
-    final @NonNull HttpServletRequest request,
-    final @NonNull Model model
-  ) {
+      final @NonNull HttpServletRequest request, final @NonNull Model model) {
 
     try {
       LOG.debug("Fetching node from remote content repository");
 
       final ResponseEntity<TraversedNodeInfo> response =
-        this.contentRepository.traverseNode(request.getServletPath());
-      final TraversedNodeInfo   nodeInfo   = Objects.requireNonNull(response.getBody());
+          this.contentRepository.traverseNode(request.getServletPath());
+      final TraversedNodeInfo nodeInfo = Objects.requireNonNull(response.getBody());
       final Map<String, Object> properties = nodeInfo.getProperties();
 
       LOG.info("Node {} fetched", nodeInfo.getName());
@@ -80,9 +78,10 @@ public class ProductController {
     sectionInfo.setContent((String) properties.get("content"));
     sectionInfo.setParentName(nodeInfo.getParentName());
 
-    final List<PageLink> links = nodeInfo.getChildren()
-      .stream().map(c -> new PageLink((String) c.getProperties().get("title"), c.getName()))
-      .toList();
+    final List<PageLink> links =
+        nodeInfo.getChildren().stream()
+            .map(c -> new PageLink((String) c.getProperties().get("title"), c.getName()))
+            .toList();
 
     sectionInfo.setSubPages(links);
 

@@ -12,5 +12,5 @@
     </ul>
   </li>
   </#if>
-  <li><b>Colors</b>: ${product.price} €</li>
+  <li><b>Price</b>: ${product.price} €</li>
 </ul>

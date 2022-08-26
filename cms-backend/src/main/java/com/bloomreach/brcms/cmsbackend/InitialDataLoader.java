@@ -42,7 +42,7 @@ public class InitialDataLoader {
   }
 
   private void createChildRequests(
-      final String parentId, final List<NodeCreationRequest> requests) {
+      final @NonNull String parentId, final @NonNull List<NodeCreationRequest> requests) {
 
     for (final NodeCreationRequest request : requests) {
       final ResponseEntity<String> response =

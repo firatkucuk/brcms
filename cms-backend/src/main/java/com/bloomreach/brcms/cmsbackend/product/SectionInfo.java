@@ -4,10 +4,10 @@ import java.util.List;
 
 public class SectionInfo {
 
-  private String         name;
-  private String         title;
-  private String         content;
-  private String         parentName;
+  private String name;
+  private String title;
+  private String content;
+  private String parentName;
   private List<PageLink> subPages;
 
   public String getName() {

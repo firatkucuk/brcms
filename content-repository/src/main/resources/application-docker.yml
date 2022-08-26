@@ -2,6 +2,10 @@ server:
   port: 8080
 
 spring:
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
+
   datasource:
     url: ${POSTGRES_URL:jdbc:postgresql://brcms-postgres:5432/brcms}
     username: ${POSTGRES_USERNAME:brcms}
