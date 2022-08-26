@@ -5,6 +5,7 @@ import com.bloomreach.brcms.client.TraversedNodeInfo;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+import java.util.Optional;
 import javax.servlet.http.HttpServletRequest;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -86,7 +87,7 @@ public class ProductController {
     sectionInfo.setParentName(nodeInfo.getParentName());
 
     final List<PageLink> links =
-        nodeInfo.getChildren().stream()
+        Optional.ofNullable(nodeInfo.getChildren()).orElse(List.of()).stream()
             .map(
                 c ->
                     new PageLink(
