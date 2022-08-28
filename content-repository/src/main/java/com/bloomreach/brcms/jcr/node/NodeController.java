@@ -111,9 +111,7 @@ public class NodeController {
    * @return Details of specified node
    */
   @ApiOperation(value = "Fetches a node")
-  @GetMapping(
-      value = {"/nodes/{nodeId}", "/nodes/{nodeId}/"},
-      consumes = MediaType.APPLICATION_JSON_VALUE)
+  @GetMapping(value = {"/nodes/{nodeId}", "/nodes/{nodeId}/"})
   @NonNull
   NodeInfo getNode(@PathVariable @Size(min = 1, max = 26) final @NonNull String nodeId) {
 
@@ -129,9 +127,7 @@ public class NodeController {
    * @return Selected page of nodes
    */
   @ApiOperation(value = "List nodes")
-  @GetMapping(
-      value = {"/nodes", "/nodes/"},
-      consumes = MediaType.APPLICATION_JSON_VALUE)
+  @GetMapping(value = {"/nodes", "/nodes/"})
   @NonNull
   Page<NodeListItem> listNodes(
       @PageableDefault(sort = "id", direction = Sort.Direction.DESC)

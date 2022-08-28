@@ -7,7 +7,7 @@ spring:
       matching-strategy: ant_path_matcher
 
   datasource:
-    url: jdbc:postgresql://localhost:5432/brcms
+    url: jdbc:postgresql://localhost:35432/brcms
     username: brcms
     password: brcms
 
