@@ -5,6 +5,7 @@ import java.util.ArrayList;
 
 public enum PropertyType {
   TEXT(String.class),
+  NODE_LINK(String.class),
   NUMBER(Number.class),
   ARRAY(ArrayList.class),
   BOOLEAN(Boolean.class),

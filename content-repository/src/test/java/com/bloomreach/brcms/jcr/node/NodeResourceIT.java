@@ -358,6 +358,11 @@ class NodeResourceIT {
     propertyForm6.setType(PropertyType.TEXT);
     propertyForm6.setValue(null);
 
+    final NodePropertyForm propertyForm7 = new NodePropertyForm();
+    propertyForm7.setKey("myNodeLink");
+    propertyForm7.setType(PropertyType.NODE_LINK);
+    propertyForm7.setValue("/other-node");
+
     final NodeForm childNodeForm = new NodeForm();
     childNodeForm.setName("child-node");
     childNodeForm.setProperties(
@@ -367,7 +372,8 @@ class NodeResourceIT {
             propertyForm3,
             propertyForm4,
             propertyForm5,
-            propertyForm6));
+            propertyForm6,
+            propertyForm7));
 
     response = this.contentRepository.createChildNode(parentNodeId, childNodeForm);
     Assertions.assertEquals(HttpStatus.CREATED, response.getStatusCode());
@@ -391,7 +397,7 @@ class NodeResourceIT {
     final Map<String, Object> childNodeProperties = childNodeInfo.getProperties();
 
     Assertions.assertNotNull(childNodeProperties);
-    Assertions.assertEquals(6, childNodeProperties.size());
+    Assertions.assertEquals(7, childNodeProperties.size());
     Assertions.assertEquals(true, childNodeProperties.get("myBoolean"));
     Assertions.assertEquals(123, childNodeProperties.get("myNumber"));
     Assertions.assertEquals("Hello", childNodeProperties.get("myText"));
